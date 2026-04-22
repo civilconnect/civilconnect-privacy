@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delete Account – CivilConnect</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.3px; }
+    header span { font-size: 0.95rem; opacity: 0.85; }
+    main {
+      max-width: 680px;
+      margin: 48px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 36px 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #1a73e8;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .section-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #333;
+      margin: 24px 0 10px;
+    }
+    ol, ul {
+      padding-left: 20px;
+      color: #444;
+      line-height: 1.9;
+      font-size: 0.95rem;
+    }
+    .info-box {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 24px 0;
+      font-size: 0.92rem;
+      color: #5a4000;
+      line-height: 1.6;
+    }
+    .email-btn {
+      display: inline-block;
+      margin-top: 28px;
+      background: #1a73e8;
+      color: white;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 0.97rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .email-btn:hover { background: #1558b0; }
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 28px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>CivilConnect</h1>
+    <span>Account Deletion Request</span>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Request Account Deletion</h2>
+    <p class="subtitle">
+      We respect your right to control your personal data. If you'd like to delete your CivilConnect account and all associated data, please follow the steps below.
+    </p>
+
+    <div class="section-title">How to Request Deletion</div>
+    <ol>
+      <li>Send an email to <strong>support@civilconnect.app</strong> (update this address)</li>
+      <li>Use the subject line: <strong>"Delete My Account"</strong></li>
+      <li>Include the email address registered with your CivilConnect account</li>
+      <li>We will verify your identity and process your request within <strong>7 business days</strong></li>
+    </ol>
+
+    <div class="info-box">
+      ⚠️ <strong>Please note:</strong> Once deleted, your account cannot be recovered. This action is permanent and irreversible.
+    </div>
+
+    <div class="section-title">What Data Gets Deleted</div>
+    <ul>
+      <li>Your profile information (name, email, photo)</li>
+      <li>All posts, comments, and activity history</li>
+      <li>Notifications and preferences</li>
+      <li>Any other personally identifiable information</li>
+    </ul>
+
+    <hr class="divider" />
+
+    <div class="section-title">Data Retention</div>
+    <p style="font-size:0.95rem; color:#444; line-height:1.7;">
+      Some data may be retained for up to <strong>30 days</strong> in encrypted backups before being permanently purged. Data required by law (e.g., transaction records) may be retained for the legally mandated period.
+    </p>
+
+    <a class="email-btn" href="mailto:support@civilconnect.app?subject=Delete%20My%20Account">
+      📧 Send Deletion Request
+    </a>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 CivilConnect. All rights reserved.
+</footer>
+
+</body>
+</html>
