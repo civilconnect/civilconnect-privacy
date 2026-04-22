@@ -4,148 +4,248 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Delete Account – CivilConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
+    :root {
+      --bg: #080b12;
+      --bg2: #0e1220;
+      --card: #161b2e;
+      --border: #1e2540;
+      --gold: #f0b429;
+      --goldglow: #f0b42940;
+      --golddim: #f0b42918;
+      --red: #f87171;
+      --reddim: #f8717118;
+      --green: #2dd4a0;
+      --greendim: #2dd4a018;
+      --orange: #fb923c;
+      --orangedim: #fb923c18;
+      --blue: #4f8ef7;
+      --bluedim: #4f8ef718;
+      --purple: #a78bfa;
+      --purpledim: #a78bfa18;
+      --text: #dde2f0;
+      --muted: #5a6280;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6f9;
-      color: #222;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
     header {
-      background: #1a73e8;
-      color: white;
-      padding: 20px 40px;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
       display: flex;
       align-items: center;
       gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.3px; }
-    header span { font-size: 0.95rem; opacity: 0.85; }
-    main {
-      max-width: 680px;
-      margin: 48px auto;
-      padding: 0 20px;
-      flex: 1;
+    .logo-icon {
+      width: 40px; height: 40px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--gold), #c49a10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
     }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 36px 40px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    .logo-name { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; color: var(--text); }
+    .logo-name span { color: var(--gold); }
+    .logo-tag { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 1px; }
+    main { max-width: 600px; margin: 0 auto; padding: 28px 18px 60px; }
+    .alert {
+      background: var(--reddim);
+      border: 1px solid #f8717130;
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex; gap: 12px; align-items: flex-start;
+      margin-bottom: 24px;
     }
-    h2 {
-      font-size: 1.5rem;
-      color: #1a73e8;
-      margin-bottom: 8px;
+    .alert-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+    .alert-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 4px; }
+    .alert-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .page-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .page-title { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .page-sub { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
+    .card-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .card-header-icon { width: 32px; height: 32px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+    .card-header-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); }
+    .card-header-sub { font-size: 10px; color: var(--muted); margin-top: 1px; }
+    .card-body { padding: 16px 18px; }
+    .step { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: var(--golddim); border: 1px solid var(--goldglow);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 800;
+      color: var(--gold); flex-shrink: 0;
     }
-    .subtitle {
-      color: #555;
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-      line-height: 1.6;
+    .step-text { font-size: 13px; color: var(--text); line-height: 1.6; padding-top: 2px; }
+    .step-text strong { color: var(--gold); }
+    .data-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+    .data-item:last-child { border-bottom: none; }
+    .data-item-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .inapp-box {
+      background: var(--greendim);
+      border: 1px solid #2dd4a030;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      display: flex; gap: 12px; align-items: flex-start;
     }
-    .section-title {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #333;
-      margin: 24px 0 10px;
-    }
-    ol, ul {
-      padding-left: 20px;
-      color: #444;
-      line-height: 1.9;
-      font-size: 0.95rem;
-    }
-    .info-box {
-      background: #fff8e1;
-      border-left: 4px solid #f9a825;
-      border-radius: 6px;
-      padding: 14px 18px;
-      margin: 24px 0;
-      font-size: 0.92rem;
-      color: #5a4000;
-      line-height: 1.6;
+    .inapp-icon { font-size: 22px; flex-shrink: 0; }
+    .inapp-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+    .inapp-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .inapp-path {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 7px; padding: 5px 11px;
+      font-size: 11px; font-weight: 600; color: var(--green);
+      margin-top: 8px;
     }
     .email-btn {
-      display: inline-block;
-      margin-top: 28px;
-      background: #1a73e8;
-      color: white;
-      text-decoration: none;
-      padding: 13px 28px;
-      border-radius: 8px;
-      font-size: 0.97rem;
-      font-weight: 600;
-      transition: background 0.2s;
+      display: block; width: 100%; padding: 14px;
+      border-radius: 12px; border: none;
+      background: linear-gradient(135deg, var(--gold), #c49a10);
+      color: #080b12;
+      font-family: 'Syne', sans-serif;
+      font-size: 14px; font-weight: 800;
+      text-decoration: none; text-align: center;
+      cursor: pointer; transition: all .2s;
+      box-shadow: 0 4px 20px var(--goldglow);
+      margin-top: 16px;
     }
-    .email-btn:hover { background: #1558b0; }
-    .divider {
-      border: none;
-      border-top: 1px solid #eee;
-      margin: 28px 0;
+    .email-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    .retention-box {
+      background: var(--orangedim);
+      border: 1px solid #fb923c30;
+      border-radius: 11px;
+      padding: 13px 16px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
     }
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 0.85rem;
-      color: #888;
-    }
+    .retention-box strong { color: var(--orange); }
+    footer { text-align: center; padding: 28px 18px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
   </style>
 </head>
 <body>
 
 <header>
+  <div class="logo-icon">⚡</div>
   <div>
-    <h1>CivilConnect</h1>
-    <span>Account Deletion Request</span>
+    <div class="logo-name">Civil<span>Connect</span></div>
+    <div class="logo-tag">Account Deletion Policy</div>
   </div>
 </header>
 
 <main>
-  <div class="card">
-    <h2>Request Account Deletion</h2>
-    <p class="subtitle">
-      We respect your right to control your personal data. If you'd like to delete your CivilConnect account and all associated data, please follow the steps below.
-    </p>
 
-    <div class="section-title">How to Request Deletion</div>
-    <ol>
-      <li>Send an email to <strong>civilconnect.vot@gmail.com</strong></li>
-      <li>Use the subject line: <strong>"Delete My Account"</strong></li>
-      <li>Include the email address registered with your CivilConnect account</li>
-      <li>We will verify your identity and process your request within <strong>7 business days</strong></li>
-    </ol>
-
-    <div class="info-box">
-      ⚠️ <strong>Please note:</strong> Once deleted, your account cannot be recovered. This action is permanent and irreversible.
+  <div class="alert">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-title">Permanent Action</div>
+      <div class="alert-text">Once your account is deleted, it cannot be recovered. All your data will be permanently and irreversibly erased.</div>
     </div>
-
-    <div class="section-title">What Data Gets Deleted</div>
-    <ul>
-      <li>Your profile information (name, email, photo)</li>
-      <li>All posts, comments, and activity history</li>
-      <li>Notifications and preferences</li>
-      <li>Any other personally identifiable information</li>
-    </ul>
-
-    <hr class="divider" />
-
-    <div class="section-title">Data Retention</div>
-    <p style="font-size:0.95rem; color:#444; line-height:1.7;">
-      Some data may be retained for up to <strong>30 days</strong> in encrypted backups before being permanently purged. Data required by law (e.g., transaction records) may be retained for the legally mandated period.
-    </p>
-
-    <a class="email-btn" href="mailto:civilconnect.vot@gmail.com?subject=Delete%20My%20Account">
-      📧 Send Deletion Request
-    </a>
   </div>
+
+  <div class="page-tag">⚙️ DATA PRIVACY</div>
+  <div class="page-title">Delete Your Account</div>
+  <div class="page-sub">We respect your right to control your personal data. You can delete your CivilConnect account using either of the two methods below.</div>
+
+  <!-- OPTION 1: IN-APP -->
+  <div class="inapp-box">
+    <div class="inapp-icon">📱</div>
+    <div>
+      <div class="inapp-title">Option 1 — Delete Instantly In App ⚡</div>
+      <div class="inapp-text">The fastest way. Open the app and navigate to:</div>
+      <div class="inapp-path">👤 Profile → 🗑️ Delete My Account</div>
+      <div class="inapp-text" style="margin-top:8px">Your account and all data will be deleted immediately after two confirmations.</div>
+    </div>
+  </div>
+
+  <!-- OPTION 2: EMAIL -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-icon" style="background:var(--bluedim);border:1px solid #4f8ef730">📧</div>
+      <div>
+        <div class="card-header-title">Option 2 — Request via Email</div>
+        <div class="card-header-sub">Processed within 7 business days</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Email us at <strong>civilconnect.vot@gmail.com</strong></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Use subject line: <strong>"Delete My Account"</strong></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Include the <strong>email address</strong> registered with your CivilConnect account</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">We will verify your identity and process your deletion within <strong>7 business days</strong></div>
+      </div>
+      <a class="email-btn" href="mailto:civilconnect.vot@gmail.com?subject=Delete%20My%20Account">
+        📧 Send Deletion Request
+      </a>
+    </div>
+  </div>
+
+  <!-- WHAT GETS DELETED -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-icon" style="background:var(--reddim);border:1px solid #f8717130">🗑️</div>
+      <div>
+        <div class="card-header-title">What Gets Deleted</div>
+        <div class="card-header-sub">All data permanently removed from our servers</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="data-item">
+        <div class="data-item-icon" style="background:var(--golddim)">👤</div>
+        Your profile — name, email, phone number, location, role
+      </div>
+      <div class="data-item">
+        <div class="data-item-icon" style="background:var(--bluedim)">🔑</div>
+        Login session and all authentication data
+      </div>
+      <div class="data-item">
+        <div class="data-item-icon" style="background:var(--purpledim)">📒</div>
+        All M-Book measurement entries and history
+      </div>
+      <div class="data-item">
+        <div class="data-item-icon" style="background:var(--greendim)">📐</div>
+        Uploaded plans and drawings (Google Drive links)
+      </div>
+      <div class="data-item">
+        <div class="data-item-icon" style="background:var(--orangedim)">📋</div>
+        Project requirements and client preferences
+      </div>
+      <div class="data-item">
+        <div class="data-item-icon" style="background:var(--reddim)">⚙️</div>
+        Specialization, skills, and all account settings
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA RETENTION -->
+  <div class="retention-box">
+    🕐 <strong>Data Retention:</strong> Some data may be retained in encrypted backups for up to <strong>30 days</strong> before being permanently purged. Data required by applicable law may be retained for the legally mandated period.
+  </div>
+
 </main>
 
 <footer>
-  &copy; 2025 CivilConnect. All rights reserved.
+  © 2025 CivilConnect · All rights reserved<br>
+  <span style="margin-top:5px;display:block">civilconnect.vot@gmail.com</span>
 </footer>
 
 </body>
